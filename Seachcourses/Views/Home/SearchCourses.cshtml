@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Seachcourses.Entities.UniversityCourses>
+
+
+@Html.BeginForm()
+
+<h2>SearchCourses</h2>
+*@Html.Label("Enter GPA")
+@Html.TextBox("dmGPA", null, new { required = "true" })
+*@Html.Label("Enter GRE Score")
+@Html.TextBox("imGRE", null, new { required = "true" })
+*@Html.Label("Enter Country")
+@Html.TextBox("sCountry", null, new { required = "true" })
+@Html.Label("Enter Course")
+@Html.TextBox("scourseName")
+<input type="submit" value="search" class="btn-default" />
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Universityname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Coursename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minimum_gpa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minimum_gre_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Universityname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coursename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.minimum_gpa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.minimum_gre_score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>
+
+        </tr>
+    }
+
+</table>
